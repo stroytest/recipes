@@ -9,6 +9,9 @@ interface CategoryStore {
     @Query("SELECT * FROM categories")
     fun loadAll(): List<Category>
 
+    @Query("SELECT * FROM categories WHERE id = :id")
+    fun findById(id: String): Category
+
     @Insert
     fun insert(category: Category)
 
@@ -16,5 +19,6 @@ interface CategoryStore {
     fun update(category: Category)
 
     @Delete
-    fun delete(vararg categories: Category)
+    fun delete(category: Category)
+
 }

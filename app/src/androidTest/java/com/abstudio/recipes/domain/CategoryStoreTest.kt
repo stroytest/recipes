@@ -24,14 +24,10 @@ class CategoryStoreTest {
     private val underTest = db.categories()
 
     @Test
-    fun insertAndDelete() {
+    fun insert() {
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entity = Category(
-            id = UUID.randomUUID().toString(),
-            name = "This is a name",
-            photoPath = "This is photo path",
-        )
+        val entity = Category("This is a name")
 
         underTest.insert(entity)
 
@@ -39,9 +35,50 @@ class CategoryStoreTest {
             assertThat(it, hasSize(equalTo(1)))
             assertThat(it[0], equalTo(entity))
         }
+    }
+
+    @Test
+    fun getById() {
+
+        val entity = Category("This is a name")
+
+        underTest.insert(entity)
+
+        val fromDB: Category = underTest.findById(entity.id)
+
+        assertThat(fromDB, equalTo(entity))
+    }
+
+    @Test
+    fun update() {
+
+        val entity = Category("This is a name")
+
+        underTest.insert(entity)
+
+        val updated: Category = underTest.findById(entity.id)
+
+        updated.name = "This is new"
+        updated.photoPath = "So is this"
+
+        underTest.update(updated)
+
+        underTest.loadAll().let {
+            assertThat(it, hasSize(equalTo(1)))
+            assertThat(it[0], equalTo(updated))
+        }
+    }
+
+    @Test
+    fun delete() {
+
+        val entity = Category("This is a name")
+
+        underTest.insert(entity)
 
         underTest.delete(entity)
 
         assertThat(underTest.loadAll(), isEmpty)
     }
+
 }
