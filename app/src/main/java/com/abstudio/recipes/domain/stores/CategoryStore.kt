@@ -6,7 +6,7 @@ import com.abstudio.recipes.domain.entities.Category
 @Dao
 interface CategoryStore {
 
-    @Query("SELECT * FROM categories")
+    @Query("SELECT * FROM categories ORDER BY name")
     fun loadAll(): List<Category>
 
     @Query("SELECT * FROM categories WHERE id = :id")
@@ -21,4 +21,6 @@ interface CategoryStore {
     @Delete
     fun delete(category: Category)
 
+    // TODO: 09.01.2022 GetRecipesCountByCategory(Category category)
+    //  SELECT * FROM BridgeCategoryRecipes WHERE BridgeCategoryRecipes.CategoryID = " + category.CategoryID
 }
