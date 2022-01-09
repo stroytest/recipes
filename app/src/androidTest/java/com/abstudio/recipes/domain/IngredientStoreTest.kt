@@ -3,7 +3,7 @@ package com.abstudio.recipes.domain
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.abstudio.recipes.domain.entities.Category
+import com.abstudio.recipes.domain.entities.Ingredient
 import com.abstudio.recipes.domain.entities.Recipe
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
@@ -12,21 +12,24 @@ import com.natpryce.hamkrest.isEmpty
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
 @RunWith(AndroidJUnit4::class)
-class RecipeStoreTest {
+class IngredientStoreTest {
+
 
     private val db = Room.inMemoryDatabaseBuilder(
         InstrumentationRegistry.getInstrumentation().targetContext,
         RecipesDB::class.java
     ).build()
 
-    private val underTest = db.recipes()
+    private val underTest = db.ingredients()
+
 
     @Test
     fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entity = Recipe("RecipeA")
+        val entity = Ingredient("IngredientA")
 
         underTest.insert(entity)
 
@@ -38,17 +41,16 @@ class RecipeStoreTest {
         underTest.delete(entity)
 
         assertThat(underTest.loadAll(), isEmpty)
-
     }
 
     @Test
     fun getById() {
 
-        val entity = Recipe("RecipeA")
+        val entity = Ingredient("IngredientA")
 
         underTest.insert(entity)
 
-        val fromDB: Recipe = underTest.findById(entity.id)
+        val fromDB: Ingredient = underTest.findById(entity.id)
 
         assertThat(fromDB, equalTo(entity))
     }
@@ -56,13 +58,13 @@ class RecipeStoreTest {
     @Test
     fun update() {
 
-        val entity = Recipe("RecipeA")
+        val entity = Ingredient("IngredientA")
 
         underTest.insert(entity)
 
-        val updated: Recipe = underTest.findById(entity.id)
+        val updated: Ingredient = underTest.findById(entity.id)
 
-        updated.name = "RecipeB"
+        updated.name = "IngredientB"
 
         underTest.update(updated)
 
@@ -71,5 +73,6 @@ class RecipeStoreTest {
             assertThat(it[0], equalTo(updated))
         }
     }
+
 
 }

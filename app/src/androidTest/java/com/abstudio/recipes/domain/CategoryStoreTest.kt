@@ -39,7 +39,7 @@ class CategoryStoreTest {
     }
 
     @Test
-    fun insert() {
+    fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 
         val entity = Category("This is a name")
@@ -50,6 +50,10 @@ class CategoryStoreTest {
             assertThat(it, hasSize(equalTo(1)))
             assertThat(it[0], equalTo(entity))
         }
+
+        underTest.delete(entity)
+
+        assertThat(underTest.loadAll(), isEmpty)
     }
 
     @Test
@@ -82,18 +86,6 @@ class CategoryStoreTest {
             assertThat(it, hasSize(equalTo(1)))
             assertThat(it[0], equalTo(updated))
         }
-    }
-
-    @Test
-    fun delete() {
-
-        val entity = Category("This is a name")
-
-        underTest.insert(entity)
-
-        underTest.delete(entity)
-
-        assertThat(underTest.loadAll(), isEmpty)
     }
 
 }
