@@ -8,6 +8,7 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.hasSize
 import com.natpryce.hamkrest.isEmpty
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.*
@@ -23,12 +24,15 @@ class CategoryStoreTest {
 
     private val underTest = db.categories()
 
+
     @Test
     fun loadAllAndSortByName() {
+
         assertThat(underTest.loadAll(), isEmpty)
 
         val entityB = Category("B")
         underTest.insert(entityB)
+
         val entityA = Category("A")
         underTest.insert(entityA)
 
@@ -37,6 +41,7 @@ class CategoryStoreTest {
             assertThat(it[0], equalTo(entityA))
         }
     }
+
 
     @Test
     fun insertAndDelete() {
@@ -55,6 +60,7 @@ class CategoryStoreTest {
 
         assertThat(underTest.loadAll(), isEmpty)
     }
+
 
     @Test
     fun getById() {
@@ -87,5 +93,4 @@ class CategoryStoreTest {
             assertThat(it[0], equalTo(updated))
         }
     }
-
 }
