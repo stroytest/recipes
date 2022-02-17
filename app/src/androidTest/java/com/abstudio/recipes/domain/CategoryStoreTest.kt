@@ -30,15 +30,16 @@ class CategoryStoreTest {
 
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entityB = Category("B")
-        underTest.insert(entityB)
+        val catB = Category("B")
+        underTest.insert(catB)
 
-        val entityA = Category("A")
-        underTest.insert(entityA)
+        val catA = Category("A")
+        underTest.insert(catA)
 
         underTest.loadAll().let {
             assertThat(it, hasSize(equalTo(2)))
-            assertThat(it[0], equalTo(entityA))
+            assertThat(it[0], equalTo(catA))
+            assertThat(it[1], equalTo(catB))
         }
     }
 

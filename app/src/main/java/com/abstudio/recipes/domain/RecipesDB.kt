@@ -12,7 +12,8 @@ import com.abstudio.recipes.domain.stores.*
         Recipe::class,
         Ingredient::class,
         Amount::class,
-        CategoryRecipeJoin::class],
+        CategoryRecipeJoin::class,
+        RecipeIngredientJoin::class],
     version = 1
 )
 abstract class RecipesDB : RoomDatabase() {
@@ -26,5 +27,7 @@ abstract class RecipesDB : RoomDatabase() {
     abstract fun amounts(): AmountStore
 
     abstract fun category_recipe_joins(): CategoryRecipeJoinStore
+
+    abstract fun recipe_ingredient_joins(): RecipeIngredientJoinStore
 
 }

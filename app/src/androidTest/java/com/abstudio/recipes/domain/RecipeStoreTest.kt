@@ -23,6 +23,23 @@ class RecipeStoreTest {
     private val underTest = db.recipes()
 
     @Test
+    fun loadAllAndSortByName(){
+
+        val recB = Recipe("RecipeA")
+        underTest.insert(recB)
+
+        val recA = Recipe("RecipeA")
+        underTest.insert(recA)
+
+        underTest.loadAll().let {
+            assertThat(it, hasSize(equalTo(2)))
+            assertThat(it[0], equalTo(recA))
+            assertThat(it[1], equalTo(recB))
+        }
+    }
+
+
+    @Test
     fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 

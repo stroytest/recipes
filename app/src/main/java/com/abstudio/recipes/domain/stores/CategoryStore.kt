@@ -21,6 +21,4 @@ interface CategoryStore {
     @Delete
     fun delete(category: Category)
 
-    // TODO: 09.01.2022 GetRecipesCountByCategory(Category category)
-    //  SELECT * FROM BridgeCategoryRecipes WHERE BridgeCategoryRecipes.CategoryID = " + category.CategoryID
 }
