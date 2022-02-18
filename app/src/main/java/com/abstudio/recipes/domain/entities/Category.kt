@@ -6,7 +6,7 @@ import java.util.*
 
 
 @Entity(tableName = "categories")
-data class Category(var name: String) {
+data class Category(var name: String): BaseEntity() {
     @PrimaryKey
     var id: String = UUID.randomUUID().toString()
     var photoPath: String = ""

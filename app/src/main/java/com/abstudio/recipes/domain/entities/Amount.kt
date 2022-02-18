@@ -6,7 +6,7 @@ import java.util.*
 
 
 @Entity(tableName = "amounts")
-data class Amount(var name: String) {
+data class Amount(var name: String): BaseEntity() {
     @PrimaryKey
     var id: String = UUID.randomUUID().toString()
 }

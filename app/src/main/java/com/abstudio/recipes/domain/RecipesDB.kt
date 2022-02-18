@@ -13,7 +13,9 @@ import com.abstudio.recipes.domain.stores.*
         Ingredient::class,
         Amount::class,
         CategoryRecipeJoin::class,
-        RecipeIngredientJoin::class],
+        RecipeIngredientJoin::class,
+        AutoCompletePhrase::class,
+        ShopingCartItem::class],
     version = 1
 )
 abstract class RecipesDB : RoomDatabase() {
@@ -30,4 +32,7 @@ abstract class RecipesDB : RoomDatabase() {
 
     abstract fun recipe_ingredient_joins(): RecipeIngredientJoinStore
 
+    abstract fun auto_complete_phrase(): AutoCompletePhraseStore
+
+    abstract fun shoping_cart_item(): ShopingCartItemStore
 }
