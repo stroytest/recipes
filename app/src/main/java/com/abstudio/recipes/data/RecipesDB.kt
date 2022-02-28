@@ -1,6 +1,8 @@
 package com.abstudio.recipes.data
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.abstudio.recipes.data.entities.*
 import com.abstudio.recipes.data.stores.*
@@ -35,4 +37,27 @@ abstract class RecipesDB : RoomDatabase() {
     abstract fun auto_complete_phrase(): AutoCompletePhraseStore
 
     abstract fun shoping_cart_item(): ShopingCartItemStore
+
+    companion object {
+        var INSTANCE: RecipesDB? = null
+
+        //db = RecipesDB.getDataBase(context = this)
+
+        fun getDataBase(context: Context): RecipesDB? {
+            if (INSTANCE == null) {
+                synchronized(RecipesDB::class) {
+                    INSTANCE = Room.databaseBuilder(
+                        context.applicationContext,
+                        RecipesDB::class.java,
+                        "recipeDB"
+                    ).build()
+                }
+            }
+            return INSTANCE
+        }
+
+        fun destroyDataBase() {
+            INSTANCE = null
+        }
+    }
 }

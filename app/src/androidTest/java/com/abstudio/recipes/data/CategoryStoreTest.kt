@@ -22,7 +22,6 @@ class CategoryStoreTest {
 
     private val underTest = db.categories()
 
-
     @Test
     fun loadAllAndSortByName() {
 
@@ -41,19 +40,18 @@ class CategoryStoreTest {
         }
     }
 
-
     @Test
     fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entity = Category(name = "This is a name")
+        val entity = Category("Name")
 
         underTest.insert(entity)
 
         underTest.loadAll().let {
             assertThat(it, hasSize(equalTo(1)))
             assertThat(it[0], equalTo(entity))
-            //assertThat(it[0].oldId, equalTo(0))
+            assertThat(it[0].oldId, equalTo(""))
         }
 
         underTest.delete(entity)
@@ -61,10 +59,8 @@ class CategoryStoreTest {
         assertThat(underTest.loadAll(), isEmpty)
     }
 
-
     @Test
     fun getById() {
-
         val entity = Category("Name")
 
         underTest.insert(entity)
@@ -76,7 +72,6 @@ class CategoryStoreTest {
 
     @Test
     fun update() {
-
         val entity = Category("Name")
 
         underTest.insert(entity)
