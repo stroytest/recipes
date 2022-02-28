@@ -1,17 +1,15 @@
-package com.abstudio.recipes.domain
+package com.abstudio.recipes.data
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.abstudio.recipes.domain.entities.Category
+import com.abstudio.recipes.data.entities.Category
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.hasSize
 import com.natpryce.hamkrest.isEmpty
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.*
 
 
 @RunWith(AndroidJUnit4::class)
@@ -48,14 +46,14 @@ class CategoryStoreTest {
     fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entity = Category("This is a name")
+        val entity = Category(name = "This is a name")
 
         underTest.insert(entity)
 
         underTest.loadAll().let {
             assertThat(it, hasSize(equalTo(1)))
             assertThat(it[0], equalTo(entity))
-            assertThat(it[0].oldId, equalTo(0))
+            //assertThat(it[0].oldId, equalTo(0))
         }
 
         underTest.delete(entity)
@@ -67,7 +65,7 @@ class CategoryStoreTest {
     @Test
     fun getById() {
 
-        val entity = Category("This is a name")
+        val entity = Category("Name")
 
         underTest.insert(entity)
 
@@ -79,7 +77,7 @@ class CategoryStoreTest {
     @Test
     fun update() {
 
-        val entity = Category("This is a name")
+        val entity = Category("Name")
 
         underTest.insert(entity)
 

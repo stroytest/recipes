@@ -1,9 +1,9 @@
-package com.abstudio.recipes.domain
+package com.abstudio.recipes.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.abstudio.recipes.domain.entities.*
-import com.abstudio.recipes.domain.stores.*
+import com.abstudio.recipes.data.entities.*
+import com.abstudio.recipes.data.stores.*
 
 
 @Database(

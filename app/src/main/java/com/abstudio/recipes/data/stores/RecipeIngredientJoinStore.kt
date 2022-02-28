@@ -1,10 +1,11 @@
-package com.abstudio.recipes.domain.stores
+package com.abstudio.recipes.data.stores
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Transaction
-import com.abstudio.recipes.domain.entities.*
+import com.abstudio.recipes.data.entities.Amount
+import com.abstudio.recipes.data.entities.Ingredient
+import com.abstudio.recipes.data.entities.RecipeIngredientJoin
 
 @Dao
 interface RecipeIngredientJoinStore {

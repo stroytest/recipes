@@ -1,11 +1,8 @@
-package com.abstudio.recipes.domain.entities
+package com.abstudio.recipes.data.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
-import androidx.room.Index
-import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(
     tableName = "category_recipe_joins",
@@ -29,6 +26,9 @@ data class CategoryRecipeJoin(
     var categoryId: String,
     var recipeId: String
 )
+{
+    var oldId: String = ""
+}
 
 
 

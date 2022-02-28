@@ -1,4 +1,4 @@
-package com.abstudio.recipes.domain.entities
+package com.abstudio.recipes.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -6,7 +6,8 @@ import java.util.*
 
 
 @Entity(tableName = "amounts")
-data class Amount(var name: String): BaseEntity() {
+data class Amount(var name: String) {
     @PrimaryKey
     var id: String = UUID.randomUUID().toString()
+    var oldId: String = ""
 }

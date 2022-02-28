@@ -1,9 +1,12 @@
-package com.abstudio.recipes.domain
+package com.abstudio.recipes.data
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.abstudio.recipes.domain.entities.*
+import com.abstudio.recipes.data.entities.Amount
+import com.abstudio.recipes.data.entities.Ingredient
+import com.abstudio.recipes.data.entities.Recipe
+import com.abstudio.recipes.data.entities.RecipeIngredientJoin
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.hasSize

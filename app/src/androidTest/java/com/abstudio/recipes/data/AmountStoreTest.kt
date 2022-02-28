@@ -1,10 +1,9 @@
-package com.abstudio.recipes.domain
+package com.abstudio.recipes.data
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.abstudio.recipes.domain.entities.Category
-import com.abstudio.recipes.domain.entities.Recipe
+import com.abstudio.recipes.data.entities.Amount
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.hasSize
@@ -13,37 +12,20 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class RecipeStoreTest {
+class AmountStoreTest {
 
     private val db = Room.inMemoryDatabaseBuilder(
         InstrumentationRegistry.getInstrumentation().targetContext,
         RecipesDB::class.java
     ).build()
 
-    private val underTest = db.recipes()
-
-    @Test
-    fun loadAllAndSortByName(){
-
-        val recB = Recipe("RecipeA")
-        underTest.insert(recB)
-
-        val recA = Recipe("RecipeA")
-        underTest.insert(recA)
-
-        underTest.loadAll().let {
-            assertThat(it, hasSize(equalTo(2)))
-            assertThat(it[0], equalTo(recA))
-            assertThat(it[1], equalTo(recB))
-        }
-    }
-
+    private val underTest = db.amounts()
 
     @Test
     fun insertAndDelete() {
         assertThat(underTest.loadAll(), isEmpty)
 
-        val entity = Recipe("RecipeA")
+        val entity = Amount("AmountA")
 
         underTest.insert(entity)
 
@@ -55,17 +37,16 @@ class RecipeStoreTest {
         underTest.delete(entity)
 
         assertThat(underTest.loadAll(), isEmpty)
-
     }
 
     @Test
     fun getById() {
 
-        val entity = Recipe("RecipeA")
+        val entity = Amount("AmountA")
 
         underTest.insert(entity)
 
-        val fromDB: Recipe = underTest.findById(entity.id)
+        val fromDB: Amount = underTest.findById(entity.id)
 
         assertThat(fromDB, equalTo(entity))
     }
@@ -73,13 +54,13 @@ class RecipeStoreTest {
     @Test
     fun update() {
 
-        val entity = Recipe("RecipeA")
+        val entity = Amount("AmountA")
 
         underTest.insert(entity)
 
-        val updated: Recipe = underTest.findById(entity.id)
+        val updated: Amount = underTest.findById(entity.id)
 
-        updated.name = "RecipeB"
+        updated.name = "AmountB"
 
         underTest.update(updated)
 

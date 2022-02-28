@@ -1,8 +1,7 @@
-package com.abstudio.recipes.domain.stores
+package com.abstudio.recipes.data.stores
 
 import androidx.room.*
-import com.abstudio.recipes.domain.entities.Category
-import com.abstudio.recipes.domain.entities.Ingredient
+import com.abstudio.recipes.data.entities.Ingredient
 
 @Dao
 interface IngredientStore {

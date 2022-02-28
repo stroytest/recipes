@@ -1,4 +1,4 @@
-package com.abstudio.recipes.domain.entities
+package com.abstudio.recipes.data.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -33,3 +33,6 @@ data class RecipeIngredientJoin(
     var ingredientId: String,
     var amountId: String,
 )
+{
+    var oldId: String = ""
+}

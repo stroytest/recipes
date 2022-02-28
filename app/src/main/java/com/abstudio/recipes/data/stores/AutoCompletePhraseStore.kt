@@ -1,7 +1,7 @@
-package com.abstudio.recipes.domain.stores
+package com.abstudio.recipes.data.stores
 
 import androidx.room.*
-import com.abstudio.recipes.domain.entities.AutoCompletePhrase
+import com.abstudio.recipes.data.entities.AutoCompletePhrase
 
 @Dao
 interface AutoCompletePhraseStore {

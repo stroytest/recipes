@@ -1,4 +1,4 @@
-package com.abstudio.recipes.domain.entities
+package com.abstudio.recipes.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
