@@ -1,6 +1,17 @@
 package com.abstudio.recipes.data
 
-class Repository {
+import android.app.Application
+import androidx.lifecycle.LiveData
+import com.abstudio.recipes.data.entities.Category
+
+class Repository(application: Application) {
+
+    private val categoryStore = RecipesDB.getDatabase(application).categories()
+
+
+    fun getAllCategories(): LiveData<List<Category>> {
+        return categoryStore.getAllCategories()
+    }
 
 
 }

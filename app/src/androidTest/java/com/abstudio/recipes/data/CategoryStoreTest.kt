@@ -25,6 +25,7 @@ class CategoryStoreTest {
     @Test
     fun loadAllAndSortByName() {
 
+
         assertThat(underTest.loadAll(), isEmpty)
 
         val catB = Category("B")
