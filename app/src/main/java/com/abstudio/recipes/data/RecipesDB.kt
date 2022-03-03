@@ -39,21 +39,28 @@ abstract class RecipesDB : RoomDatabase() {
     abstract fun shoping_cart_item(): ShopingCartItemStore
 
     companion object {
-        var INSTANCE: RecipesDB? = null
 
-        //db = RecipesDB.getDataBase(context = this)
+        @Volatile
+        private var INSTANCE: RecipesDB? = null
 
-        fun getDataBase(context: Context): RecipesDB? {
-            if (INSTANCE == null) {
-                synchronized(RecipesDB::class) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        RecipesDB::class.java,
-                        "recipeDB"
-                    ).build()
-                }
+        fun getDatabase(context: Context): RecipesDB {
+            val tempInstance = INSTANCE
+
+            if (tempInstance != null) {
+                return tempInstance
             }
-            return INSTANCE
+
+            synchronized(this)
+            {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    RecipesDB::class.java,
+                    "recipeDB"
+                ).build()
+
+                INSTANCE = instance
+                return instance
+            }
         }
 
         fun destroyDataBase() {
