@@ -13,10 +13,26 @@
         <action
             android:id="@+id/action_categoriesListFragment_to_recipesListFragment"
             app:destination="@id/recipesListFragment" />
+        <action
+            android:id="@+id/action_categoriesListFragment_to_addOrEditCategoryFragment"
+            app:destination="@id/addOrEditCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/recipesListFragment"
         android:name="com.abstudio.recipes.recipes_list.RecipesListFragment"
         android:label="fragment_recipes_list"
-        tools:layout="@layout/fragment_recipes_list" />
+        tools:layout="@layout/fragment_recipes_list" >
+        <action
+            android:id="@+id/action_recipesListFragment_to_categoriesListFragment"
+            app:destination="@id/categoriesListFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addOrEditCategoryFragment"
+        android:name="com.abstudio.recipes.add_or_edit_category_fragment.AddOrEditCategoryFragment"
+        android:label="fragment_add_or_edit_category"
+        tools:layout="@layout/fragment_add_or_edit_category" >
+        <action
+            android:id="@+id/action_addOrEditCategoryFragment_to_categoriesListFragment"
+            app:destination="@id/categoriesListFragment" />
+    </dialog>
 </navigation>

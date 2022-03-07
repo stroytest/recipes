@@ -1,0 +1,61 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".add_or_edit_category_fragment.AddOrEditCategoryFragment">
+
+    <EditText
+        android:id="@+id/category_name_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:hint="@string/hint_category_title"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="textCapSentences"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <ImageView
+        android:id="@+id/category_photo_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/full_image_height"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginRight="@dimen/medium_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/no_photo"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_name_edit" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/color_primary_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_ok"
+        app:layout_constraintTop_toBottomOf="@+id/category_photo_img" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:text="@string/btn_ok"
+        android:textColor="@color/color_primary_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_photo_img" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

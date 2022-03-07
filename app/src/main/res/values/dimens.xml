@@ -6,4 +6,6 @@
 
     <dimen name="item_image_height">90dp</dimen>
     <dimen name="item_image_width">160dp</dimen>
+    <dimen name="full_image_height">220dp</dimen>
+
 </resources>

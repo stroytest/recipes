@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.abstudio.recipes.R
+import com.abstudio.recipes.add_or_edit_category_fragment.AddOrEditCategoryFragment
 import com.abstudio.recipes.common.SharedViewModel
 import com.abstudio.recipes.data.entities.Category
 import com.abstudio.recipes.utils.getCategories
@@ -44,6 +45,7 @@ class CategoriesListFragment : Fragment() {
 
         mCategoriesListViewModel.getAllCategories.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDataBaseEmpty(data)
+            //mSharedViewModel.checkIfDataBaseEmpty(getCategories())
             //adapter.setData(getCategories())
             adapter.setData(data)
         })
@@ -53,17 +55,21 @@ class CategoriesListFragment : Fragment() {
         })
 
 
+        val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
-        //val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
-
-
-        /*
         fab.setOnClickListener {
-            //findNavController().navigate(R.id.action_listFragment_to_addFragment)
+            //val fm = requireActivity().supportFragmentManager
+            //val fragment = AddOrEditCategoryFragment()
+            //val ft = fm.beginTransaction().replace(R.id.navHostFragment, fragment)
+
+
+            findNavController().navigate(R.id.action_categoriesListFragment_to_addOrEditCategoryFragment)
         }
+
 
         setHasOptionsMenu(true)
 
+        /*
         hideSoftKeyboard(requireActivity())
         */
 
