@@ -6,8 +6,10 @@ import java.util.*
 
 
 @Entity(tableName = "ingredients")
-data class Ingredient(var name: String) {
+data class Ingredient(
+    var name: String,
     @PrimaryKey
-    var id: String = UUID.randomUUID().toString()
+    val id: String = UUID.randomUUID().toString()
+) {
     var oldId: String = ""
 }

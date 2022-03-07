@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".add_or_edit_category_fragment.AddOrEditCategoryFragment">
+    tools:context=".add_or_edit_category.AddOrEditCategoryFragment">
 
     <EditText
         android:id="@+id/category_name_edit"

@@ -1,15 +1,13 @@
-package com.abstudio.recipes.add_or_edit_category_fragment
+package com.abstudio.recipes.add_or_edit_category
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.abstudio.recipes.R
+import com.abstudio.recipes.utils.showSoftKeyboard
 
 
 class AddOrEditCategoryFragment : DialogFragment() {
@@ -26,15 +24,18 @@ class AddOrEditCategoryFragment : DialogFragment() {
 
         val dialog: AlertDialog = builder.create()
         dialog.setCanceledOnTouchOutside(false)
+        showSoftKeyboard(requireActivity())
         return dialog
     }
 
     private fun makeCustomTitle(context: Context): TextView {
+
         val textView = TextView(context)
         textView.setText(R.string.add_category_dialog_title)
+        // TODO:  Вынести в ресурсы, если можно
         textView.setPadding(20, 30, 20, 30)
         textView.setTextSize(20F)
-        textView.setBackgroundColor(getResources().getColor(R.color.color_primary_dark))
+        textView.setBackgroundColor(getResources().getColor(R.color.color_primary))
         textView.setTextColor(getResources().getColor(R.color.white))
         return textView
     }

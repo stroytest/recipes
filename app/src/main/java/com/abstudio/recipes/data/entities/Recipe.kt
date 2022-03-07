@@ -5,9 +5,11 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "recipes")
-data class Recipe(var name: String) {
+data class Recipe(
+    var name: String,
     @PrimaryKey
-    var id: String = UUID.randomUUID().toString()
+    val id: String = UUID.randomUUID().toString()
+) {
     var photoPath: String = ""
     var cooking: String = ""
     var comment: String = ""

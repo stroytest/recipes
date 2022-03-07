@@ -8,4 +8,7 @@
     <dimen name="item_image_width">160dp</dimen>
     <dimen name="full_image_height">220dp</dimen>
 
+    <dimen name="dialog_title_vertical_padding">30dp</dimen>
+    <dimen name="dialog_title_horisontal_padding">20dp</dimen>
+
 </resources>

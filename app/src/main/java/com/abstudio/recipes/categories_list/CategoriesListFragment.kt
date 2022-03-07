@@ -1,28 +1,18 @@
 package com.abstudio.recipes.categories_list
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.abstudio.recipes.R
-import com.abstudio.recipes.add_or_edit_category_fragment.AddOrEditCategoryFragment
 import com.abstudio.recipes.common.SharedViewModel
-import com.abstudio.recipes.data.entities.Category
-import com.abstudio.recipes.utils.getCategories
-import com.abstudio.recipes.utils.hideSoftKeyboard
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 
 class CategoriesListFragment : Fragment() {
 
@@ -58,11 +48,6 @@ class CategoriesListFragment : Fragment() {
         val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
         fab.setOnClickListener {
-            //val fm = requireActivity().supportFragmentManager
-            //val fragment = AddOrEditCategoryFragment()
-            //val ft = fm.beginTransaction().replace(R.id.navHostFragment, fragment)
-
-
             findNavController().navigate(R.id.action_categoriesListFragment_to_addOrEditCategoryFragment)
         }
 

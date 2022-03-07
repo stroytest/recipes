@@ -24,7 +24,7 @@ class RecipeStoreTest {
     @Test
     fun loadAllAndSortByName(){
 
-        val recB = Recipe("RecipeA")
+        val recB = Recipe("RecipeB")
         underTest.insert(recB)
 
         val recA = Recipe("RecipeA")

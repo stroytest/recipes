@@ -1,4 +1,4 @@
-package com.abstudio.recipes.add_or_edit_category_fragment
+package com.abstudio.recipes.add_or_edit_category
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

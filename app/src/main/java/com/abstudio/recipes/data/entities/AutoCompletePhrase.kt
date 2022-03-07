@@ -5,8 +5,10 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "dictionary")
-class AutoCompletePhrase(var phrase: String) {
+data class AutoCompletePhrase(
+    var phrase: String,
     @PrimaryKey
-    var id: String = UUID.randomUUID().toString()
+    val id: String = UUID.randomUUID().toString()
+) {
     var oldId: String = ""
 }
