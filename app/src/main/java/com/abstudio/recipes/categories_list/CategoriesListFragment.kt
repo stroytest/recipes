@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -58,8 +59,6 @@ class CategoriesListFragment : Fragment() {
         hideSoftKeyboard(requireActivity())
         */
 
-
-
         return view
     }
 
@@ -80,18 +79,28 @@ class CategoriesListFragment : Fragment() {
 
 
 
+
+
+
+
+
     /*
-
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_fragment_menu, menu)
 
         val search = menu.findItem(R.id.menu_search)
         val searchView = search.actionView as? SearchView
-        //searchView?.setQueryHint("Search View Hint")
+        searchView?.setQueryHint("Search View Hint")
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
-    }
+    }*/
+
+
+
+    /*
+
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 

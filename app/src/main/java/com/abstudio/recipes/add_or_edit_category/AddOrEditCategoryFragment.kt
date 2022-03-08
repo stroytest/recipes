@@ -3,6 +3,7 @@ package com.abstudio.recipes.add_or_edit_category
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -24,7 +25,10 @@ class AddOrEditCategoryFragment : DialogFragment() {
 
         val dialog: AlertDialog = builder.create()
         dialog.setCanceledOnTouchOutside(false)
+
+
         showSoftKeyboard(requireActivity())
+
         return dialog
     }
 

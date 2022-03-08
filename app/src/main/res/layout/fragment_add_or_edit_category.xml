@@ -5,19 +5,30 @@
     android:layout_height="wrap_content"
     tools:context=".add_or_edit_category.AddOrEditCategoryFragment">
 
-    <EditText
-        android:id="@+id/category_name_edit"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/category_name_text_input_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_margin"
-        android:hint="@string/hint_category_title"
-        android:imeOptions="flagNoExtractUi"
-        android:inputType="textCapSentences"
-        android:minHeight="48dp"
+        android:background="@android:color/transparent"
+        app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/category_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_category_title"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textCapSentences">
+
+            <requestFocus />
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/category_photo_img"
@@ -30,7 +41,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_name_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/category_name_text_input_layout" />
 
     <Button
         android:id="@+id/btn_cancel"
