@@ -17,5 +17,9 @@ class Repository(application: Application) {
         categoryStore.insert(newCategory)
     }
 
+    fun deleteCategory(category: Category) {
+        categoryStore.delete(category)
+    }
+
 
 }
