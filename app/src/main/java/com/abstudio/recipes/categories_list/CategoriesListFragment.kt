@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abstudio.recipes.R
 import com.abstudio.recipes.common.SharedViewModel
+import com.abstudio.recipes.utils.getCategories
+import com.abstudio.recipes.utils.hideSoftKeyboard
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CategoriesListFragment : Fragment() {
@@ -21,7 +22,6 @@ class CategoriesListFragment : Fragment() {
     private val mSharedViewModel: SharedViewModel by viewModels()
 
     private val adapter: CategoriesListAdapter by lazy { CategoriesListAdapter() }
-
 
 
     override fun onCreateView(
@@ -36,15 +36,15 @@ class CategoriesListFragment : Fragment() {
 
         mCategoriesListViewModel.getAllCategories.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDataBaseEmpty(data)
-            //mSharedViewModel.checkIfDataBaseEmpty(getCategories())
-            //adapter.setData(getCategories())
             adapter.setData(data)
+
+//            mSharedViewModel.checkIfDataBaseEmpty(getCategories())
+//            adapter.setData(getCategories())
         })
 
         mSharedViewModel.emptyDataBase.observe(viewLifecycleOwner, {
             showEmptyDataBaseViews(it)
         })
-
 
         val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
@@ -55,9 +55,7 @@ class CategoriesListFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        /*
-        hideSoftKeyboard(requireActivity())
-        */
+        //hideSoftKeyboard(requireActivity())
 
         return view
     }
@@ -78,12 +76,6 @@ class CategoriesListFragment : Fragment() {
     }
 
 
-
-
-
-
-
-
     /*
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_fragment_menu, menu)
@@ -94,7 +86,6 @@ class CategoriesListFragment : Fragment() {
         searchView?.isSubmitButtonEnabled = true
         searchView?.setOnQueryTextListener(this)
     }*/
-
 
 
     /*

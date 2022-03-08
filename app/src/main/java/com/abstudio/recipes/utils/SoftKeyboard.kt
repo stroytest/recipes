@@ -6,16 +6,19 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 
 //Скрыть клавиатуру
-fun hideSoftKeyboard(activity: Activity) {
-    val inputMethodManager =
-        activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+fun hideSoftKeyboard(activity: Activity){
+    val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+    inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
+    /*
     val currentFocusedView = activity.currentFocus
     currentFocusedView?.let {
         inputMethodManager.hideSoftInputFromWindow(
             currentFocusedView.windowToken,
             InputMethodManager.HIDE_NOT_ALWAYS
         )
-    }
+    }*/
 }
 
 //Показать клавиатуру

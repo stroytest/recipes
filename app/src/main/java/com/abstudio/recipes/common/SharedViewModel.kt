@@ -13,4 +13,5 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         emptyDataBase.value = categories.isEmpty()
     }
 
+
 }

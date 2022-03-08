@@ -13,5 +13,9 @@ class Repository(application: Application) {
         return categoryStore.getAllCategories()
     }
 
+    fun addCategory(newCategory: Category) {
+        categoryStore.insert(newCategory)
+    }
+
 
 }
